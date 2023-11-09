@@ -30,7 +30,7 @@ jobs:
 
       - name: Build coverage file
         run: |
-          pytest --cov=app tests/ --cov-report=xml --cov-report=txt:pytest-coverage.txt
+          pytest --cov=app tests/ --cov-report=xml --cov-report=term --cov-report=term-missing:skip-covered > pytest-coverage.txt
     
       - name: Pytest coverage comment
         uses: MishaKav/pytest-coverage-comment@main
