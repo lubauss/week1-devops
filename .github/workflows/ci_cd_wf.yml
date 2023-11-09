@@ -28,14 +28,14 @@ jobs:
         run: |
           python -m pytest -v tests
 
-      - name: Run tests with coverage
+      - name: Build coverage file
         run: |
-          python -m pytest tests/ --cov=app --cov-report=xml:coverage.xml --cov-report=txt:coverage.txt
-
+          pytest --junitxml=pytest.xml --cov-report=term-missing:skip-covered --cov=app tests/ | tee pytest-coverage.txt
+    
       - name: Pytest coverage comment
         uses: MishaKav/pytest-coverage-comment@main
         with:
-          pytest-coverage-path: ./coverage.txt
-          junitxml-path: ./coverage.xml
+          pytest-coverage-path: ./pytest-coverage.txt
+          junitxml-path: ./pytest.xml
   
       
