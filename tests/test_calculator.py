@@ -74,3 +74,54 @@ def test_div_positive_negative():
 def test_div_by_zero():
     with pytest.raises(ZeroDivisionError):
         div(10, 0)
+
+# Additional tests for calculator.py
+
+# Edge cases for division
+def test_divide_by_one():
+    assert div(5, 1) == 5
+
+def test_divide_by_itself():
+    assert div(5, 5) == 1
+
+def test_divide_by_negative():
+    assert div(5, -1) == -5
+
+def test_divide_negative_by_negative():
+    assert div(-5, -5) == 1
+
+# Edge cases for multiplication
+def test_multiply_by_zero():
+    assert mul(5, 0) == 0
+
+def test_multiply_by_one():
+    assert mul(5, 1) == 5
+
+def test_negative_multiplication():
+    assert mul(5, -3) == -15
+
+def test_negative_by_negative_multiplication():
+    assert mul(-5, -3) == 15
+
+# Edge cases for subtraction
+def test_subtract_zero():
+    assert sub(5, 0) == 5
+
+def test_subtract_from_zero():
+    assert sub(0, 5) == -5
+
+def test_subtract_negative():
+    assert sub(5, -3) == 8
+
+def test_subtract_negative_result():
+    assert sub(5, 10) == -5
+
+# Edge cases for addition
+def test_add_zero():
+    assert add(5, 0) == 5
+
+def test_add_negative():
+    assert add(5, -3) == 2
+
+def test_add_negative_result():
+    assert add(-5, -3) == -8
